@@ -227,6 +227,7 @@ $.extend($.validator, {
 		errorLabelContainer: $([]),
 		onsubmit: true,
 		ignore: ":hidden",
+		include: null,
 		ignoreTitle: false,
 		onfocusin: function( element, event ) {
 			this.lastActive = element;
@@ -491,6 +492,7 @@ $.extend($.validator, {
 			.find("input, select, textarea")
 			.not(":submit, :reset, :image, [disabled]")
 			.not( this.settings.ignore )
+			.add(this.settings.include)
 			.filter(function() {
 				if ( !this.name && validator.settings.debug && window.console ) {
 					console.error( "%o has no name assigned", this);
